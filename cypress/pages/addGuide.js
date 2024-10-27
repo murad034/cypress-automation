@@ -2,7 +2,7 @@ class AddGuide{
     hajjGuideList = 'div.hajj-dashboard-container>aside>div>div>a>span.dm-text';
     hajjGuideNewApplication = 'div#newApplicationBtn>div>span.list-btn-text';
     hajjGuideExperienceYes = 'input[type=radio][name=prev_hajj_experience][value="yes"]';
-    hajjGuideExperienceNo = 'input[type=radio][name=prev_hajj_experience][value="yes"]';
+    hajjGuideExperienceNo = 'input[type=radio][name=prev_hajj_experience][value="no"]';
     guideExperienceTrackingNo = 'input[type=text][placeholder="সর্বশেষ ট্রাকিং নম্বর লিখুন"]';
     guideExperienceNext = 'div.bd-card-footer>div>button>span';
     selectBirthDate = 'div>input.dp__input_reg[placeholder="Select Date"]';
@@ -20,8 +20,12 @@ class AddGuide{
         cy.get(this.hajjGuideNewApplication).contains('নতুন আবেদন').click()
     }
     
-    setHajjGuideExperience(){
+    setHajjGuideYesExperience(){
         cy.get(this.hajjGuideExperienceYes).click({force: true})
+    }
+
+    setHajjGuideNoExperience(){
+        cy.get(this.hajjGuideExperienceNo).click({force: true})
     }
 
     setGuideExperienceTrackingNo(trackingNo){
@@ -41,7 +45,7 @@ class AddGuide{
     }
 
     setNationalNo(nid){
-        cy.get().type(4329870922)
+        cy.get().type(nid)
     }
 
 }
