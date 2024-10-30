@@ -32,6 +32,30 @@ describe('template spec', () => {
       AddGuide.setBirthDate('1998', 'Oct', '15');
       cy.wait(5000)
       AddGuide.setNationalNo(4329870922)
+      cy.wait(5000)
+      AddGuide.setBirthPlace('দিনাজপুর')
+      cy.wait(5000)
+      AddGuide.setGender('female')
+      cy.wait(5000)
+      AddGuide.setUserphoto('C:/Users/User/Downloads/66d008082d9a1.jpeg')
+      cy.wait(5000)
+      AddGuide.setPermanentPostcode('2345')
+      cy.wait(5000)
+      AddGuide.setPermanentDivision(7)
+      cy.wait(5000)
+      AddGuide.setPermanentDistrict('ফরিদপুর')
+      cy.wait(5000)
+      AddGuide.setPermanentThana('ভাংগা')
+      cy.wait(5000)
+      AddGuide.setPermanentAddress('Sonakhola') 
+      cy.wait(5000)
+      AddGuide.clickSameAddress()
+      cy.wait(5000)
+      AddGuide.setJobHolder('No')
+      cy.wait(5000)
+      AddGuide.clickUserRegTerm()
+
+
 
       
   })
