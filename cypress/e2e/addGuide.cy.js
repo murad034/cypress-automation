@@ -4,7 +4,7 @@ import Login from "../pages/login";
 
 describe('template spec', () => {
     it('passes', () => {
-      //cy.visit('http://localhost:8000/')
+      //cy.visit('http://localhost:8000')
       cy.visit('https://uat-ehaj.oss.net.bd')
       Login.clickHeaderLogin();
       //cy.wait(5000)
@@ -54,7 +54,8 @@ describe('template spec', () => {
       AddGuide.setJobHolder('No')
       cy.wait(5000)
       AddGuide.clickUserRegTerm()
-
+      cy.wait(5000);
+      AddGuide.saveAsDraft();
 
 
       

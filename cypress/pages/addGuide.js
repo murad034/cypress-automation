@@ -24,6 +24,7 @@ class AddGuide{
     sameAddressToPresent = 'div>input[type="checkbox"]#same_address';
     jobHolder = 'div>input[type="radio"][name="hajj_guide_job_holder"]';
     userRegTerm = 'div>input[type="checkbox"]#user_reg_terms';
+    saveDraftBtn = 'div>button[type="submit"]>span';
 
 
     clickHajjGuideList(){
@@ -81,7 +82,7 @@ class AddGuide{
     }
  
     setPermanentDivision(divisionId){
-        cy.get(this.permanentDivision).select(divisionId)
+        cy.get(this.selectPermanentDivision).eq(0).select(divisionId)
     }
 
     setPermanentDistrict(value){
@@ -95,7 +96,7 @@ class AddGuide{
     }
 
     setPermanentAddress(value){
-        cy.get(this.permanentAddress).type(value)
+        cy.get(this.permanentAddress).eq(0).type(value)
     }
    
     clickSameAddress(){
@@ -108,6 +109,10 @@ class AddGuide{
     
     clickUserRegTerm(){
         cy.get(this.userRegTerm).click()
+    }
+
+    saveAsDraft(){
+        cy.get(this.saveDraftBtn).contains('Save as Draft').click()
     }
 
 }
