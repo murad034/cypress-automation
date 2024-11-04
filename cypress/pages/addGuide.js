@@ -23,6 +23,10 @@ class AddGuide{
     permanentAddress = 'div.user-guide-address>div>input[type="text"][placeholder="ঠিকানা"]';
     sameAddressToPresent = 'div>input[type="checkbox"]#same_address';
     jobHolder = 'div>input[type="radio"][name="hajj_guide_job_holder"]';
+    clickJobOccupation = 'div#occupation>div>span>span>span>span#select2--container';
+    jobDesignation = 'input#designation';
+    jobOfficeName = 'input#office_name';
+    jobOfficeAddress = 'input#office_address';
     userRegTerm = 'div>input[type="checkbox"]#user_reg_terms';
     saveDraftBtn = 'div>button[type="submit"]>span';
 
@@ -103,8 +107,31 @@ class AddGuide{
         cy.get(this.sameAddressToPresent).click()
     }
 
-    setJobHolder(value){
+    setJobHolder(value, occupation='', designation='', office_name='', office_address=''){
         cy.get(this.jobHolder+'[value="'+value+'"]').click({force: true})
+        if(value == "Yes"){
+           this.setJobOccupation(occupation)
+           this.setJobDesignation(designation)
+           this.setJobOfficeName(office_name)
+           this.setJobOfficeAddress(office_address)
+        }
+    }
+
+    setJobOccupation(value){
+        cy.get(this.clickJobOccupation).click()
+        cy.get(this.selectInputSearch).type(value+'{enter}')
+    }
+
+    setJobDesignation(value){
+        cy.get(this.jobDesignation).type(value)
+    }
+
+    setJobOfficeName(value){
+        cy.get(this.jobOfficeName).type(value)
+    }
+
+    setJobOfficeAddress(value){
+        cy.get(this.jobOfficeAddress).type(value)
     }
     
     clickUserRegTerm(){
