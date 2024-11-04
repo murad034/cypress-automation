@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import Login from "../pages/login";
+
+// -- This is a login command --
+Cypress.Commands.add('guideLogin', (mobileNo, password) => {
+    //cy.visit('http://localhost:8000')
+    cy.visit('https://uat-ehaj.oss.net.bd')
+    Login.clickHeaderLogin();
+    Login.clickHeaderSocialGuideLogin();
+    Login.setMobileNo(mobileNo)
+    Login.setPassword(password)
+    Login.clickSignIn()
+    //cy.wait(5000)
+    cy.url().should('include', '/my-desk')
+})
